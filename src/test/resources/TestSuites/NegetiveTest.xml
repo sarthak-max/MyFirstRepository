@@ -1,0 +1,52 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="NegetiveTest" verbose="1">
+
+	<test name="PositiveTests">
+		<groups>
+			<run>
+				<include name="positivetests" />
+			</run>
+		</groups>
+
+		<classes>
+			<class name="com.herokuapp.theinternet.LoginTests" />
+		</classes>
+	</test>
+
+	<test name="NegetiveUsernameTest">
+
+		<parameter name="username" value="incorrectusername" />
+		<parameter name="password" value="SuperSecretPassword!" />
+		<parameter name="expectedmessage"
+			value="Your username is invalid!" />
+
+		<classes>
+			<class name="com.herokuapp.theinternet.LoginTests">
+				<methods>
+					<include name="negetiveLoginTest" />
+				</methods>
+			</class>
+
+		</classes>
+
+	</test>
+
+	<test name="NegetivePasswordTest">
+
+		<parameter name="username" value="tomsmith" />
+		<parameter name="password" value="incorrectpassword!" />
+		<parameter name="expectedmessage"
+			value="Your password is invalid!" />
+
+		<classes>
+			<class name="com.herokuapp.theinternet.LoginTests">
+				<methods>
+					<include name="negetiveLoginTest" />
+				</methods>
+			</class>
+		</classes>
+
+	</test>
+
+</suite>
